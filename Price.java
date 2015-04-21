@@ -178,17 +178,18 @@ public class Price{
     public String toString() {
     	String pos_P = '$'+ Long.toString(P/10);
     	String neg_P = '$' + '-' + Long.toString(P/10);
-    	if (market_price == true) {
+    	
+        if (market_price == true) {
     		return "MKT";
-    		}
+    	}
     	
     	if (P<0) {
     		return neg_P;	
     	}
-    	if(P >0) {
+        else if(P >0) {
     		return pos_P;
     	}
-    	}
+    }
     
     
     
