@@ -1,8 +1,4 @@
-/*
- Jerry Ayodele
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package SE350;
 
 
@@ -38,40 +34,40 @@ public class Price{
            
     public long add(Price p) throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
-    	throw new InvalidPriceOperation("Price either null or market price!");
+            throw new InvalidPriceOperation("Price either null or market price!");
     	}
     	else{
-        long p_val = p.P + this.P;
-        return p_val;
+            long p_val = p.P + this.P;
+            return p_val;
+            }
     }
-    	}
     
     public long subtract(Price p) throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
-        	throw new InvalidPriceOperation("Price either null or market price!");
-        	}
+            throw new InvalidPriceOperation("Price either null or market price!");
+        }
     	else {
-        long p_val = this.P - p.P; 
-        return p_val;
+            long p_val = this.P - p.P; 
+            return p_val;
+        }
     }
-    	}
     
     public long multiply(Price p)throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
-        	throw new InvalidPriceOperation("Price either null or market price!");
-        	}
+            throw new InvalidPriceOperation("Price either null or market price!");
+        }
     	else {
-        long p_val = p.P * this.P;
-        return p_val;
+            long p_val = p.P * this.P;
+            return p_val;
+        }
     }
-    	}
     
     public int compareTo(Price p)throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
         	throw new InvalidPriceOperation("Price either null or market price!");
-        	}
+        }
     	else{
-    	int comp_result = 0;
+            int comp_result = 0;
     	if (p.P == P) {
     		comp_result = 0;
     	}
@@ -87,32 +83,32 @@ public class Price{
     	}
     public boolean greaterOrEqual(Price p)throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
-        	throw new InvalidPriceOperation("Price either null or market price!");
-        	}
+            throw new InvalidPriceOperation("Price either null or market price!");
+        }
     	else{
-    	boolean a = true;
-    	boolean b = false;
-    	if (compareTo(p) >= 0) { 
-    	return a;
-    }
+            boolean a = true;
+            boolean b = false;
+            if (compareTo(p) >= 0) { 
+                return a;
+            }
     	return b;
+        }
     }
-    	}
     
     
     public boolean greaterThan(Price p)throws InvalidPriceOperation{
     	if(p == null || market_price == true || p.market_price==true) {
         	throw new InvalidPriceOperation("Price either null or market price!");
-        	}
+        }
     	else{
-    	boolean a = true;
-    	boolean b = false;
-    	if (compareTo(p) > 0) { 
-    	return a;
+            boolean a = true;
+            boolean b = false;
+            if (compareTo(p) > 0) { 
+            return a;
+        }
+            return b;
+        }
     }
-    	return b;
-    }
-    	}
 
     
     public boolean lessOrEqual(Price p){
@@ -120,8 +116,8 @@ public class Price{
     	boolean b = false;
     	try{
     	if (compareTo(p) <= 0) { 
-    	return a;
-    }
+            return a;
+        }
     	}
     	catch(InvalidPriceOperation i){
     		System.out.print(i);
@@ -135,7 +131,7 @@ public class Price{
     	try{
     	if (compareTo(p) < 0) { 
     	return a;
-    }
+        }
     	}
     	catch(InvalidPriceOperation x){
     		System.out.print(x);
@@ -143,15 +139,15 @@ public class Price{
     	return b;
     }
    
-    public boolean Equal(Price p){
+    public boolean equals(Price p){
     	boolean a = true;
     	boolean b = false;
     	try{
-    	if (compareTo(p) == 0) { 
-    	return a;
-    }
-    	}
-    	catch(InvalidPriceOperation y){
+            if (compareTo(p) == 0) { 
+            return a;
+            }
+        }
+            catch(InvalidPriceOperation y){
     		System.out.print(y);
     	}
     	return b;
@@ -182,14 +178,14 @@ public class Price{
         if (market_price == true) {
     		return "MKT";
     	}
-    	
-    	if (P<0) {
+        else if (P<0) {
     		return neg_P;	
     	}
-        else if(P >0) {
+        else{         //if (P>0) causes an error (replaced)
     		return pos_P;
     	}
     }
+        
     
     
     
