@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package SE350;
 
 /**
@@ -10,44 +6,74 @@ package SE350;
  * @author Daryl
  */
 public class Tradable {
+    String product;
+    int OriQuantity; 
+    int RemQuantity;
+    int CanQuantity;
+    String UserID;
+    String side; 
+    boolean quote = false; 
+    Price TradableP = new Price();
+    
+    
     String getProduct(){
-        
+        return product; 
     }
     
-    Price getPrice(){
-        
-    }
+    long getPrice(){
+        return TradableP.P; 
+    } //I used long instead of Price because of the long return method
     
     int getOriginalVolume(){
-        
+        return OriQuantity;
     }
     
     int getRemainingVolume(){
-        
+        return RemQuantity;
     }
     
-    in getCancelledVolume(){
-        
+    int getCancelledVolume(){
+        return CanQuantity;
     }
     
     void setCancelledVolume(int newCancelledVolume){
+        int check; 
+        check = newCancelledVolume + RemQuantity; 
         
+        if (newCancelledVolume <0 || check < OriQuantity)
+        {
+            System.out.println("Value is invalid");
+        }
+        else
+        {
+            CanQuantity = newCancelledVolume; 
+        }
     }
     
     void setRemainingVolume(int newRemainingVolume){
+        int check;
+        check = newRemainingVolume + CanQuantity; 
         
+        if(newRemainingVolume < 0 || check < OriQuantity){
+            System.out.println("Value is invalid");
+        }
+        else
+        {
+            RemQuantity = newRemainingVolume;
+        }
     }
     
     String getUser(){
-        
+        return UserID; 
     }
     
     String getSide(){
-        
+        return side;
     }
     
     boolean isQuote(){
-        
+        return this.quote;
+        //not sure about this. check.
     }
     
     String getId(){
