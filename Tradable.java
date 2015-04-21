@@ -6,78 +6,72 @@ package SE350;
  * @author Daryl
  */
 public class Tradable {
-    String product;
-    int OriQuantity; 
-    int RemQuantity;
-    int CanQuantity;
-    String UserID;
-    String side; 
-    boolean quote = false; 
-    Price TradableP = new Price();
+    Order TradableO = new Order();
+    //Price TradableP = new Price();
     
     
     String getProduct(){
-        return product; 
+        return TradableO.product; 
     }
     
     long getPrice(){
-        return TradableP.P; 
+        return TradableO.Tradable.P; 
     } //I used long instead of Price because of the long return method
     
     int getOriginalVolume(){
-        return OriQuantity;
+        return TradableO.OriQuantity;
     }
     
     int getRemainingVolume(){
-        return RemQuantity;
+        return TradableO.RemQuantity;
     }
     
     int getCancelledVolume(){
-        return CanQuantity;
+        return TradableO.CanQuantity;
     }
     
     void setCancelledVolume(int newCancelledVolume){
         int check; 
-        check = newCancelledVolume + RemQuantity; 
+        check = newCancelledVolume + TradableO.RemQuantity; 
         
-        if (newCancelledVolume <0 || check < OriQuantity)
+        if (newCancelledVolume <0 || check < TradableO.OriQuantity)
         {
             System.out.println("Value is invalid");
         }
         else
         {
-            CanQuantity = newCancelledVolume; 
+            TradableO.CanQuantity = newCancelledVolume; 
         }
     }
     
     void setRemainingVolume(int newRemainingVolume){
         int check;
-        check = newRemainingVolume + CanQuantity; 
+        check = newRemainingVolume + TradableO.CanQuantity; 
         
-        if(newRemainingVolume < 0 || check < OriQuantity){
+        if(newRemainingVolume < 0 || check < TradableO.OriQuantity){
             System.out.println("Value is invalid");
         }
         else
         {
-            RemQuantity = newRemainingVolume;
+            TradableO.RemQuantity = newRemainingVolume;
         }
     }
     
     String getUser(){
-        return UserID; 
+        return TradableO.UserID; 
     }
     
     String getSide(){
-        return side;
+        return TradableO.side;
     }
     
     boolean isQuote(){
-        return this.quote;
+        return TradableO.quote;
         //not sure about this. check.
     }
     
     String getId(){
-        
+        return TradableO.ID; 
     }
 }
 
