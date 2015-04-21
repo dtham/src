@@ -1,19 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ Jerry Ayodele
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se350;
+package SE350;
 
 
 public class Price{
     
     public long P; 
-    public long market_price; 
+    public boolean market_price = false; 
     
     public void Price(long value){
        //price check
-        if(value == 0 || value == mprice) //check marketprice
+        if(value == 0 ) //check marketprice
         {
             System.out.println("Invalid Price Operation");
         }
@@ -24,25 +24,172 @@ public class Price{
     }
     
     public void Price(){
-        market_price = mprice; //check
+        market_price = true; //check
+    }
+    
+    public class InvalidPriceOperation extends Exception{
+    	public InvalidPriceOperation(String message) {
+    		super(message);
+    	}
+    	public InvalidPriceOperation(String message, Throwable throwable){
+    		super(message, throwable);
+    }
     }
            
-    public long add(long p){
-        long p_val = p + P;
+    public long add(Price p) throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+    	throw new InvalidPriceOperation("Price either null or market price!");
+    	}
+    	else{
+        long p_val = p.P + this.P;
         return p_val;
     }
+    	}
     
-    public long subtract(long p){
-        long p_val = P - p; 
+    public long subtract(Price p) throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+        	throw new InvalidPriceOperation("Price either null or market price!");
+        	}
+    	else {
+        long p_val = this.P - p.P; 
         return p_val;
     }
+    	}
     
-    public long multiply(long p){
-        long p_val = P * p;
+    public long multiply(Price p)throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+        	throw new InvalidPriceOperation("Price either null or market price!");
+        	}
+    	else {
+        long p_val = p.P * this.P;
         return p_val;
     }
+    	}
     
-    public int compareTo(long p){
+    public int compareTo(Price p)throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+        	throw new InvalidPriceOperation("Price either null or market price!");
+        	}
+    	else{
+    	int comp_result = 0;
+    	if (p.P == P) {
+    		comp_result = 0;
+    	}
+    	if (p.P > P){
+    		comp_result = -1;
+    	}
+    	if (p.P < P){
+    		comp_result = 1;
+    	}
+    		return comp_result;
         
     }
-}
+    	}
+    public boolean greaterOrEqual(Price p)throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+        	throw new InvalidPriceOperation("Price either null or market price!");
+        	}
+    	else{
+    	boolean a = true;
+    	boolean b = false;
+    	if (compareTo(p) >= 0) { 
+    	return a;
+    }
+    	return b;
+    }
+    	}
+    
+    
+    public boolean greaterThan(Price p)throws InvalidPriceOperation{
+    	if(p == null || market_price == true || p.market_price==true) {
+        	throw new InvalidPriceOperation("Price either null or market price!");
+        	}
+    	else{
+    	boolean a = true;
+    	boolean b = false;
+    	if (compareTo(p) > 0) { 
+    	return a;
+    }
+    	return b;
+    }
+    	}
+
+    
+    public boolean lessOrEqual(Price p){
+    	boolean a = true;
+    	boolean b = false;
+    	try{
+    	if (compareTo(p) <= 0) { 
+    	return a;
+    }
+    	}
+    	catch(InvalidPriceOperation i){
+    		System.out.print(i);
+    	}
+    	return b;
+    }
+    
+    public boolean lessThan(Price p){
+    	boolean a = true;
+    	boolean b = false;
+    	try{
+    	if (compareTo(p) < 0) { 
+    	return a;
+    }
+    	}
+    	catch(InvalidPriceOperation x){
+    		System.out.print(x);
+    	}
+    	return b;
+    }
+   
+    public boolean Equal(Price p){
+    	boolean a = true;
+    	boolean b = false;
+    	try{
+    	if (compareTo(p) == 0) { 
+    	return a;
+    }
+    	}
+    	catch(InvalidPriceOperation y){
+    		System.out.print(y);
+    	}
+    	return b;
+    }
+    
+    public boolean isMarket() {
+    	return this.market_price;
+    }
+    
+    public boolean isNegative() {
+    	boolean a = true;
+    	boolean b = false;
+    	 if (market_price == true) {
+    		 return b;
+    	 }
+    	 else {
+    	if (P < 0) {
+    		return a;
+    	}
+    	return b;
+    	}
+    }
+    
+    public String toString() {
+    	String pos_P = '$'+ Long.toString(P/10);
+    	String neg_P = '$' + '-' + Long.toString(P/10);
+    	if (market_price == true) {
+    		return "MKT";
+    		}
+    	
+    	if (P<0) {
+    		return neg_P;	
+    	}
+    	if(P >0) {
+    		return pos_P;
+    	}
+    	}
+    
+    
+    
+    }
