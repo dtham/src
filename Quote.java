@@ -30,6 +30,7 @@ public class Quote {
     }
     
     public String toString(){
-        
-    }
+        String sum_string;
+        sum_string = StockSymbol + "$" + PriceOrder + "( Original Vol: " + OriQuantity + ", CXL'd Vol: " + CanQuantity + "), ID: (" + ID + ")";
+    } //incomplete do this
 }
