@@ -8,6 +8,8 @@ public class Quote {
     QuoteSide Buy = new QuoteSide();
     QuoteSide Sell = new QuoteSide();
     Price PriceOrder = new Price();
+    Bookside side = new Bookside();
+   
     
     public void Quote(String userName, String productSymbol, Price buyPrice,
             int buyVolume, Price sellPrice, int sellVolume){
@@ -26,7 +28,7 @@ public class Quote {
     }
     
     public QuoteSide getQuoteSide(Bookside sideIn){
-        //work on this
+        side.setSide(sideIn);
     }
     
     public String toString(){
