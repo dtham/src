@@ -15,7 +15,6 @@ public class Order {
     int CanQuantity;
     String UserID;
     String b_side; 
-    boolean quote = false;
     String ID; 
     Price PriceOrder = new Price();
     Price Tradable = new Price();
