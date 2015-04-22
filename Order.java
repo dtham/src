@@ -1,10 +1,7 @@
 
 package SE350;
 
-/**
- *
- * @author Daryl
- */
+
 public class Order {
 	
 	String onePartOfID;
@@ -14,22 +11,22 @@ public class Order {
     int RemQuantity;
     int CanQuantity;
     String UserID;
-    String b_side; 
     String ID; 
     Price PriceOrder = new Price();
     Price Tradable = new Price();
+    Bookside b_side = new Bookside();
 
     
     public void Order(String userName, String productSymbol, Price orderPrice, int originalVolume, Bookside side)
     {
         UserID = userName; 
         product = productSymbol;
-        b_side = side;
         OriQuantity = originalVolume; 
         time_nano = Long.toString(System.nanoTime());
         PriceOrder = orderPrice;
         onePartOfID = PriceOrder.toString();
         ID = UserID + product + onePartOfID + time_nano;
+        b_side.setSide(side);
     }
     
    public String getProduct() {

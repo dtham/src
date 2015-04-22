@@ -8,8 +8,7 @@ public class QuoteSide {
 	String product;
 	int OriQuantity; 
 	int RemQuantity;
-	int CanQuantity;
-	String b_side; 
+	int CanQuantity; 
 	String ID; 
 	Price PriceOrder = new Price();
 	   
@@ -21,7 +20,7 @@ public class QuoteSide {
     	product = productSymbol;
     	PriceOrder = sidePrice;
     	OriQuantity = originalVolume;
-    	b_side = side;
+    	side.setSide(side);
     	current_time = Long.toString(System.nanoTime());
     	ID = UserID + product + current_time;
             }

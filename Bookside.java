@@ -8,4 +8,8 @@ public class Bookside {
     public void setSide(String sideIn){
         side = sideIn; 
     }
+    
+    public String getSide(){
+        return side;
+    }
 }

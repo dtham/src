@@ -8,7 +8,7 @@ package SE350;
 public class Tradable {
     Order TradableO = new Order();
     //Price TradableP = new Price();
-    
+    Bookside b_side = new Booksides();
     
     String getProduct(){
         return TradableO.product; 
@@ -62,7 +62,7 @@ public class Tradable {
     }
     
     String getSide(){
-        return TradableO.b_side;
+        return b_side.getSide();
     }
     
     boolean isQuote(){
