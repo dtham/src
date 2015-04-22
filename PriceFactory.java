@@ -7,7 +7,7 @@ public class PriceFactory {
     public static Price Factory = new Price();
     
     public static Price makeLimitPrice(String value){
-        value = value.replaceAll("[[$,]","");
+        value = value.replaceAll("[$,]","");
         double temp = Double.parseDouble(value);
         temp = temp*100.0; 
         limit = (long)temp;

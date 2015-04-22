@@ -62,7 +62,7 @@ public class Tradable {
     }
     
     String getSide(){
-        return TradableO.side;
+        return TradableO.b_side;
     }
     
     boolean isQuote(){
